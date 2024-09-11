@@ -19,16 +19,11 @@ function App() {
 
   // Handle form input changes
   const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
+    const { name, value} = e.target;
 
-    if (type === "checkbox") {
-      const newLanguage = checked
-        ? [...formData.language, value]
-        : formData.language.filter((lang) => lang !== value);
-      setFormData({ ...formData, language: newLanguage });
-    } else {
+   
       setFormData({ ...formData, [name]: value });
-    }
+
   };
 
   // Validation logic
@@ -86,6 +81,7 @@ function App() {
         Sex: ${formData.sex}
         Language: ${formData.language.join(", ")}
         About: ${formData.about}
+        
       `;
 
       // Show the message in an alert
